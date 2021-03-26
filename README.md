@@ -1,7 +1,7 @@
 # generic-discord-music-bot
 Discord music bot developed using discord.js library
 
-[Website](seraphinush.github.io/generic-discord-music-bot)
+[Website](https://seraphinush.github.io/generic-discord-music-bot/)
 
 ## Prerequisite
 - Discord server
