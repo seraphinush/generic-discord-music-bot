@@ -1,6 +1,8 @@
 # generic-discord-music-bot
 Discord music bot developed using discord.js library
 
+[Website](seraphinush.github.io/generic-discord-music-bot)
+
 ## Prerequisite
 - Discord server
 - MongoDB cluster
@@ -27,7 +29,7 @@ Run application
 node index.js
 ```
 
-## Usage
+`## Usage
 ```
 - join, on : join voice channel
 - leave, off : leave voice channel
@@ -37,11 +39,26 @@ node index.js
 - pause : pause music
 - resume : resume music
 - skip : skip to next music in queue if queue exists
+- remove, rm <Number> : remove music in queue at index if queue exists
 - clear : clear music in queue
 - repeat <none | one | all> : disable repeat music | repeat current music | repeat all music in order of queue
-- volume : adjust volume of the immediate voice activity between 0 and 100. does not affect other voice activity in queue
+- volume <Number> : adjust volume of voice activity between 0 and 100. does not the user-designated volume of the client itself
 - save : save current song list to an online database
 - load : load song list from an online database to queue. automatically plays if there is no voice activity
+````
+
+## Permissions used
+```
+Text Permissions ::
+SEND_MESSAGES
+MANAGE_MESSAGES
+ADD_REACTIONS
+
+Voice Permissions ::
+VIEW_CHANNEL
+CONNECT
+SPEAK
+USE_VAD
 ```
 
 ## Limitations

@@ -1,7 +1,17 @@
 module.exports = {
   name: 'help',
   cooldown: 5,
+  userPermissions: [
+    'VIEW_CHANNEL',
+    'SEND_MESSAGES'
+  ],
+  cliTextPermissions: [
+    'VIEW_CHANNEL',
+    'SEND_MESSAGES'
+  ],
   async execute(client, message) {
+    const textChannel = message.channel;
+
     let reply = 'Prefix : `' + process.env.PREFIX + '`';
     reply += '\nCommands :';
     reply += '\n- join, on : join voice channel';
@@ -12,11 +22,12 @@ module.exports = {
     reply += '\n- pause : pause music';
     reply += '\n- resume : resume music';
     reply += '\n- skip : skip to next music in queue if queue exists';
+    reply += '\n- remove, rm <Number> : remove music in queue at index if queue exists';
     reply += '\n- clear : clear music in queue';
     reply += '\n- repeat <none | one | all> : disable repeat music | repeat current music | repeat all music in order of queue';
-    reply += '\n- volume : adjust volume of the immediate voice activity between 0 and 100. does not affect other voice activity in queue';
+    reply += '\n- volume <Number> : adjust volume of voice activity between 0 and 100. does not the user-designated volume of the client itself';
     reply += '\n- save : save current song list to an online database';
     reply += '\n- load : load song list from an online database to queue. automatically plays if there is no voice activity';
-    client.send_message(message.channel, reply);
+    client.send_message(textChannel, reply);
   }
 };

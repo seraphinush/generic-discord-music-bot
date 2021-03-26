@@ -29,5 +29,4 @@ module.exports = async (client, Discord, oldState, newState) => {
       server.timeout = null;
     }
   }
-
 };

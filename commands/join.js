@@ -2,26 +2,34 @@ module.exports = {
   name: 'join',
   aliases: ['on'],
   cooldown: 5,
-  permissions: ['MANAGE_MESSAGES'],
+  requireVoice: true,
+  userPermissions: [
+    'VIEW_CHANNEL',
+    'SEND_MESSAGES',
+    'CONNECT'
+  ],
+  cliTextPermissions: [
+    'VIEW_CHANNEL',
+    'SEND_MESSAGES'
+  ],
+  cliVoicePermissions: [
+    'VIEW_CHANNEL',
+    'CONNECT',
+    'SPEAK'
+  ],
   async execute(client, message) {
     const voiceChannel = message.member.voice.channel;
 
-    if (!voiceChannel)
-      client.send_errorMessage(message.channel, 'You have to be connected to a voice channel to execute this command.');
-    else {
-      let server = client.get_server(message.guild.id);
-      if (!server) {
-        await client.init_server(message);
-        server = await client.get_server(message.guild.id);
-        server.voiceChannel = voiceChannel;
-      }
-      
-      const connection = await voiceChannel.join();
-      connection.voice.setSelfDeaf(true);
-      server.connection = connection;
+    // main
+    let server = await client.get_server(message.guild.id);
+    if (!server) {
+      await client.init_server(message.guild.id, message.channel, voiceChannel);
+      server = await client.get_server(message.guild.id);
     }
 
-    message.delete({ timeout: 10000 })
-    .catch((error) => { if (error.code == 50013) return; });
+    server.voiceChannel = voiceChannel;
+    const connection = await voiceChannel.join();
+    connection.voice.setSelfDeaf(true);
+    server.connection = connection;
   }
 };
