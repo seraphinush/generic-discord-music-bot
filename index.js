@@ -133,7 +133,7 @@ client.set_repeatReactions = (server) => {
 // TODO -- END
 
 ['command.handler', 'event.handler'].forEach(handler => {
-  require(`./handlers/${handler}`)(client, Discord);
+  require(`./handlers/${handler}`)(client);
 });
 
 mongoose.connect(process.env.MONGODB_SRV, {

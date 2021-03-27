@@ -1,8 +1,10 @@
 require('dotenv').config();
 
+const Discord = require('discord.js');
+
 const cooldowns = new Map();
 
-module.exports = (client, Discord, message) => {
+module.exports = (client, message) => {
 
   const prefix = process.env.PREFIX;
 
@@ -70,7 +72,7 @@ module.exports = (client, Discord, message) => {
   timestamps.set(message.guild.id, currentTime);
   setTimeout(() => { timestamps.delete(message.guild.id); }, cooldownAmount);
 
-  try { command.execute(client, message, cmd, args, Discord); }
+  try { command.execute(client, message, cmd, args); }
   catch (error) {
     client.send_errorMessage(message.channel, 'There was an error executing this command.');
     console.error();

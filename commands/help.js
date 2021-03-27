@@ -28,6 +28,7 @@ module.exports = {
     reply += '\n- volume <Number> : adjust volume of voice activity between 0 and 100. does not the user-designated volume of the client itself';
     reply += '\n- save : save current song list to an online database';
     reply += '\n- load : load song list from an online database to queue. automatically plays if there is no voice activity';
+    reply += '\n\nCheck out our [website](https://seraphinush.github.io/generic-discord-music-bot) for more information';
     client.send_message(textChannel, reply);
   }
 };

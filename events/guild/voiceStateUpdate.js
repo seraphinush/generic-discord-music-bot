@@ -1,6 +1,6 @@
 const TWO_MINUTES = 120000;
 
-module.exports = async (client, Discord, oldState, newState) => {
+module.exports = async (client, oldState, newState) => {
   const server = await client.get_server(newState.guild.id)
   if (!server) return;
 
