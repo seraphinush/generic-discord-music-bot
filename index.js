@@ -23,7 +23,7 @@ client.events = new Discord.Collection();
 */
 client.servers = new Map();
 
-const repeat_options = Object.freeze({ NONE: 0, ONE: 1, ALL: 2 });
+const repeatOptions = Object.freeze({ NONE: 0, ONE: 1, ALL: 2 });
 
 // TODO -- START
 
@@ -37,7 +37,7 @@ client.init_server = (id, textChannel, voiceChannel) => {
       voiceChannel: voiceChannel,
       pauseMessage: null,
       playMessage: null,
-      repeat: repeat_options.NONE,
+      repeat: repeatOptions.NONE,
       shuffle: false,
       volume: 100,
       songs: [],
@@ -97,7 +97,7 @@ client.send_playMessage = async (id) => {
   if (server.playMessage)
     await server.playMessage.delete();
   server.playMessage = await client.send_message(server.textChannel, msg);
-  if (server.repeat !== repeat_options.NONE)
+  if (server.repeat !== repeatOptions.NONE)
     client.set_repeatReactions(server);
 }
 
