@@ -57,7 +57,7 @@ client.get_server = (id) => {
 }
 
 client.rm_server = (id) => {
-  return new Promise((id) => {
+  return new Promise((resolve) => {
     client.servers.delete(id);
     resolve();
   });
