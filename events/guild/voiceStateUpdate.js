@@ -18,7 +18,7 @@ module.exports = async (client, oldState, newState) => {
         if (voiceChannel.members.size === 1) {
           if (voiceChannel.members.has(client.user.id)) {
             await voiceChannel.leave();
-            client.servers.delete(newState.guild.id);
+            client.rm_server(newState.guild.id);
           }
         }
       }, TWO_MINUTES);

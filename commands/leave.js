@@ -30,5 +30,5 @@ module.exports = {
       clearTimeout(server.timeout);
       server.timeout = null;
     }
-    client.servers.delete(message.guild.id);
+    client.rm_server(message.guild.id);
   }};

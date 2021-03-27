@@ -119,7 +119,7 @@ module.exports = {
             server.connection = connection;
             await this.musicPlayer(client, server);
           } catch {
-            server.delete(message.guild.id);
+            client.rm_server(message.guild.id);
             client.send_errorMessage(textChannel, 'There was an error connecting to the voice channel.');
           }
         } else {

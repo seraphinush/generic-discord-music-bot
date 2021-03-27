@@ -28,13 +28,6 @@ const repeat_options = Object.freeze({ NONE: 0, ONE: 1, ALL: 2 });
 // TODO -- START
 
 // helper functions
-client.get_server = (id) => {
-  return new Promise((resolve) => {
-    let res = client.servers.get(id);
-    resolve(res);
-  });
-}
-
 client.init_server = (id, textChannel, voiceChannel) => {
   return new Promise((resolve) => {
     const info = {
@@ -52,6 +45,20 @@ client.init_server = (id, textChannel, voiceChannel) => {
     };
 
     client.servers.set(id, info);
+    resolve();
+  });
+}
+
+client.get_server = (id) => {
+  return new Promise((resolve) => {
+    let res = client.servers.get(id);
+    resolve(res);
+  });
+}
+
+client.rm_server = (id) => {
+  return new Promise((id) => {
+    client.servers.delete(id);
     resolve();
   });
 }
