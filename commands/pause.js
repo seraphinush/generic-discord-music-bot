@@ -8,6 +8,15 @@ module.exports = {
     'CONNECT',
     'SPEAK'
   ],
+  cliTextPermissions: [
+    'VIEW_CHANNEL',
+    'SEND_MESSAGES'
+  ],
+  cliVoicePermissions: [
+    'VIEW_CHANNEL',
+    'CONNECT',
+    'SPEAK'
+  ],
   async execute(client, message) {
     const textChannel = message.channel;
     const server = await client.get_server(message.guild.id);

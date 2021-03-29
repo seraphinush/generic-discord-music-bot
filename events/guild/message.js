@@ -46,6 +46,8 @@ module.exports = (client, message) => {
   // check client voiceCHannel permissions
   if (command.cliVoicePermissions) {
     const voiceChannel = message.member.voice.channel;
+    if (!voiceChannel)
+      return client.send_errorMessage(message.channel, 'You have to be connected to a voice channel to execute this command.');
     const permissions = voiceChannel.permissionsFor(message.client.user);
     for (const perm of command.cliVoicePermissions) {
       if (!permissions.has(perm))

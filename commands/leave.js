@@ -7,11 +7,9 @@ module.exports = {
     'VIEW_CHANNEL',
     'SEND_MESSAGES'
   ],
-  cliVoicePermissions: [
+  cliTextPermissions: [
     'VIEW_CHANNEL',
-    'SEND_MESSAGES',
-    'CONNECT',
-    'SPEAK'
+    'SEND_MESSAGES'
   ],
   async execute(client, message) {
     const textChannel = message.channel;

@@ -2,7 +2,6 @@ const ytdl = require('ytdl-core');
 const yt_search = require('yt-search');
 
 const playlistModel = require('../models/playlist.model');
-const { trimEnd } = require('ffmpeg-static');
 
 const repeatOptions = Object.freeze({ NONE: 0, ONE: 1, ALL: 2 });
 
