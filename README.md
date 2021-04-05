@@ -13,6 +13,7 @@ Create `.env` file in base folder
 Input Discord bot command prefix in `.env` file
 Input Discord Bot Token in `.env` file
 Input MongoDB URI in `.env` file
+
 Example :
 ```
 PREFIX = .
@@ -29,7 +30,7 @@ Run application
 node index.js
 ```
 
-`## Usage
+## Usage
 ```
 - join, on : join voice channel
 - leave, off : leave voice channel
