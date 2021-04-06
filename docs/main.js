@@ -75,46 +75,47 @@ window.addEventListener('load', function () {
 
   const commandHandler = async (e) => {
     if (!commandOpen) return;
-    test.style.backgroundColor = 'yellow';
+    test.style.backgroundColor = 'red';
 
-    let some = ['red', 'green','blue']
+    /* let some = ['red', 'green','blue']
 
     for (let j = 0; j < 3; j++) {
       await sleep(2000)
       test.style.backgroundColor = some[j];
-    }
-    test.style.backgroundColor = '#36ACB6';
+    } */
+    //test.style.backgroundColor = '#36ACB6';
 
     for (let i = 0; i < 3; i++) {
       test.style.backgroundColor = 'pink';
       if (e.path[i].classList.contains('command')) {
+        test.style.backgroundColor = 'green';
         if (command) {
-          test.style.backgroundColor = 'red';
           collapseCommand(command);
-          test.style.backgroundColor = 'green';
+          test.style.backgroundColor = 'yellow';
           commandMarker.classList.remove('active');
           await sleep(200);
           commandChild.style.display = 'none';
           if (command == e.path[i]) {
             command = commandChild = commandMarker = null;
+            test.style.backgroundColor = 'blue';
             return;
           }
         }
         command = e.path[i];
+        test.style.backgroundColor = 'purple';
         for (const child of command.children) {
           if (child.classList.contains('command-content')) {
             commandChild = child;
             commandChild.style.display = 'block';
           }
         }
-        test.style.backgroundColor = 'blue';
         expandCommand(command);
-        test.style.backgroundColor = 'yellow';
+        test.style.backgroundColor = '#36ACB6';
         commandMarker = command.querySelector('.marker')
         commandMarker.classList.add('active');
         break;
       }
-      test.style.backgroundColor = 'purple';
+      test.style.backgroundColor = 'black';
     }
     test.style.backgroundColor = 'orange';
 
