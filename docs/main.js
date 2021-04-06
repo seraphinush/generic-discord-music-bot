@@ -51,20 +51,29 @@ window.addEventListener('load', function () {
   let command = null;
   let commandChild = null;
   let commandMarker = null;
+  let commandHeightMin = null;
+  let commandHeightMax = null;
 
   const collapseCommand = (el) => {
-    let height = el.scrollHeight - 35;
-    el.style.height = height + 'px';
+    console.log('scrollHeight: ' + el.scrollHeight);
+    console.log('commandHeightMin: ' + commandHeightMin);
+    console.log('commandHeightMax: ' + commandHeightMax);
+    el.style.height = commandHeightMax + 'px';
     requestAnimationFrame(() => {
-      el.style.height = '30px';
+      el.style.height = commandHeightMin + 'px';
     });
   };
 
   const expandCommand = (el) => {
-    let height = el.scrollHeight - 35;
-    el.style.height = '30px';
+    let txt = el.querySelector('h4');
+    commandHeightMin = txt.scrollHeight;
+    commandHeightMax = el.scrollHeight - 40;
+    console.log('scrollHeight: ' + el.scrollHeight);
+    console.log('commandHeightMin: ' + commandHeightMin);
+    console.log('commandHeightMax: ' + commandHeightMax);
+    el.style.height = commandHeightMin + 'px';
     requestAnimationFrame(() => {
-      el.style.height = height + 'px';
+      el.style.height = commandHeightMax + 'px';
     });
   };
 

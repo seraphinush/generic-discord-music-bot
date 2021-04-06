@@ -244,10 +244,6 @@ div {
   overflow: hidden;
 }
 
-.command.active {
-  height: 100px;
-}
-
 .command svg {
   width: 15px;
   height: 15px;
