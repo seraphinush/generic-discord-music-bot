@@ -67,7 +67,7 @@ const expandCommand = (el) => {
   });
 };
 
-document.addEventListener('click', async (e) => {
+const commandHandler = async (e) => {
   if (!commandOpen) return;
 
   for (let i = 0; i < 3; i++) {
@@ -95,4 +95,7 @@ document.addEventListener('click', async (e) => {
       break;
     }
   }
-});
+};
+
+document.addEventListener('click', commandHandler);
+document.addEventListener('touchend', commandHandler);

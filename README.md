@@ -43,7 +43,7 @@ node index.js
 - remove, rm <Number> : remove music in queue at index if queue exists
 - clear : clear music in queue
 - repeat <none | one | all> : disable repeat music | repeat current music | repeat all music in order of queue
-- volume <Number> : adjust volume of voice activity between 0 and 100. does not the user-designated volume of the client itself
+- volume <Number> : adjust volume of voice activity between 0 and 100. does not adjust the user-designated volume of the client itself
 - save : save current song list to an online database
 - load : load song list from an online database to queue. automatically plays if there is no voice activity
 ````
