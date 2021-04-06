@@ -53,9 +53,12 @@ window.addEventListener('load', function () {
   let commandMarker = null;
   let commandHeightMin = null;
   let commandHeightMax = null;
+  let test = document.querySelector('#cmd-join');
 
   const collapseCommand = (el) => {
     el.style.height = commandHeightMin + 'px';
+    
+    test.style.backgroundColor = 'blue';
   };
 
   const expandCommand = (el) => {
@@ -63,17 +66,19 @@ window.addEventListener('load', function () {
     commandHeightMin = txt.scrollHeight;
     commandHeightMax = el.scrollHeight - 40;
     if (!el.style.height) {
-      //el.style.height = commandHeightMin + 'px';
-      //requestAnimationFrame(() => {
+      el.style.height = commandHeightMin + 'px';
+      requestAnimationFrame(() => {
         el.style.height = commandHeightMax + 'px';
-      //});
+      });
     } else {
       el.style.height = commandHeightMax + 'px';
     }
+    test.style.backgroundColor = 'red';
   };
 
   const commandHandler = async (e) => {
     if (!commandOpen) return;
+    test.style.backgroundColor = 'green';
 
     for (let i = 0; i < 3; i++) {
       if (e.path[i].classList.contains('command')) {
