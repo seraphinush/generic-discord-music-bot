@@ -104,6 +104,7 @@ window.addEventListener('load', function () {
         commandMarker.classList.add('active');
         break;
       }
+      test.style.backgroundColor = 'purple';
     }
   };
 
