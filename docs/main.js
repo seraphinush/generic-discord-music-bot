@@ -77,6 +77,13 @@ window.addEventListener('load', function () {
     if (!commandOpen) return;
     test.style.backgroundColor = '#36ACB6';
 
+    let some = ['red', 'green','blue']
+
+    for (let j = 0; j < 3; j++) {
+      await sleep(2000)
+      test.style.backgroundColor = some[j];
+    }
+
     for (let i = 0; i < 3; i++) {
       test.style.backgroundColor = 'pink';
       if (e.path[i].classList.contains('command')) {
