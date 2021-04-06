@@ -99,6 +99,24 @@ window.addEventListener('load', function () {
   };
 
   let mobileDevice = /Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || false;
-  document.addEventListener('click', commandHandler);
+  /* document.addEventListener('click', commandHandler); */
+  [
+    document.querySelector('#cmd-join'),
+    document.querySelector('#cmd-leave'),
+    document.querySelector('#cmd-play'),
+    document.querySelector('#cmd-playnext'),
+    document.querySelector('#cmd-stop'),
+    document.querySelector('#cmd-pause'),
+    document.querySelector('#cmd-resume'),
+    document.querySelector('#cmd-skip'),
+    document.querySelector('#cmd-remove'),
+    document.querySelector('#cmd-clear'),
+    document.querySelector('#cmd-repeat'),
+    document.querySelector('#cmd-volume'),
+    document.querySelector('#cmd-save'),
+    document.querySelector('#cmd-load')
+  ].forEach(el => {
+    el.addEventListener('click', commandHandler);
+  })
 
 });
