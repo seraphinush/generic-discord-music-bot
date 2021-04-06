@@ -57,8 +57,6 @@ window.addEventListener('load', function () {
 
   const collapseCommand = (el) => {
     el.style.height = commandHeightMin + 'px';
-    
-    test.style.backgroundColor = 'blue';
   };
 
   const expandCommand = (el) => {
@@ -73,7 +71,6 @@ window.addEventListener('load', function () {
     } else {
       el.style.height = commandHeightMax + 'px';
     }
-    test.style.backgroundColor = 'red';
   };
 
   const commandHandler = async (e) => {
@@ -83,7 +80,9 @@ window.addEventListener('load', function () {
     for (let i = 0; i < 3; i++) {
       if (e.path[i].classList.contains('command')) {
         if (command) {
+          test.style.backgroundColor = 'red';
           collapseCommand(command);
+          test.style.backgroundColor = 'green';
           commandMarker.classList.remove('active');
           await sleep(200);
           commandChild.style.display = 'none';
@@ -99,7 +98,9 @@ window.addEventListener('load', function () {
             commandChild.style.display = 'block';
           }
         }
+        test.style.backgroundColor = 'blue';
         expandCommand(command);
+        test.style.backgroundColor = 'yellow';
         commandMarker = command.querySelector('.marker')
         commandMarker.classList.add('active');
         break;
