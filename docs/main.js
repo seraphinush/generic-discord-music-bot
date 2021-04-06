@@ -75,7 +75,7 @@ window.addEventListener('load', function () {
 
   const commandHandler = async (e) => {
     if (!commandOpen) return;
-    test.style.backgroundColor = '#36ACB6';
+    test.style.backgroundColor = 'yellow';
 
     let some = ['red', 'green','blue']
 
@@ -83,6 +83,7 @@ window.addEventListener('load', function () {
       await sleep(2000)
       test.style.backgroundColor = some[j];
     }
+    test.style.backgroundColor = '#36ACB6';
 
     for (let i = 0; i < 3; i++) {
       test.style.backgroundColor = 'pink';
