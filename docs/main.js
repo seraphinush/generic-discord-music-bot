@@ -106,6 +106,8 @@ window.addEventListener('load', function () {
       }
       test.style.backgroundColor = 'purple';
     }
+    test.style.backgroundColor = 'orange';
+
   };
 
   let mobileDevice = /Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || false;
