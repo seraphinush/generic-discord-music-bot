@@ -53,7 +53,6 @@ window.addEventListener('load', function () {
   let commandMarker = null;
   let commandHeightMin = null;
   let commandHeightMax = null;
-  let test = document.querySelector('#cmd-join');
 
   const collapseCommand = (el) => {
     el.style.height = commandHeightMin + 'px';
@@ -74,24 +73,19 @@ window.addEventListener('load', function () {
   };
 
   const commandHandler = async (e) => {
-
-    console.log(e)
     if (!commandOpen) return;
 
     if (command) {
       collapseCommand(command);
-      test.style.backgroundColor = 'red';
       commandMarker.classList.remove('active');
       await sleep(200);
       commandChild.style.display = 'none';
       if (command == e) {
         command = commandChild = commandMarker = null;
-        test.style.backgroundColor = 'green';
         return;
       }
     }
     command = e;
-    test.style.backgroundColor = 'blue';
     for (const child of command.children) {
       if (child.classList.contains('command-content')) {
         commandChild = child;
@@ -99,59 +93,10 @@ window.addEventListener('load', function () {
       }
     }
     expandCommand(command);
-    test.style.backgroundColor = '#36ACB6';
     commandMarker = command.querySelector('.marker')
     commandMarker.classList.add('active');
-
-
-
-
-    /* let some = ['red', 'green','blue']
-
-    for (let j = 0; j < 3; j++) {
-      await sleep(2000)
-      test.style.backgroundColor = some[j];
-    } */
-    //test.style.backgroundColor = '#36ACB6';
-
-    /* for (let i = 0; i < 3; i++) {
-      test.style.backgroundColor = 'pink';
-      if (e.path[i].classList.contains('command')) {
-        test.style.backgroundColor = 'green';
-        if (command) {
-          collapseCommand(command);
-          test.style.backgroundColor = 'yellow';
-          commandMarker.classList.remove('active');
-          await sleep(200);
-          commandChild.style.display = 'none';
-          if (command == e.path[i]) {
-            command = commandChild = commandMarker = null;
-            test.style.backgroundColor = 'blue';
-            return;
-          }
-        }
-        command = e.path[i];
-        test.style.backgroundColor = 'purple';
-        for (const child of command.children) {
-          if (child.classList.contains('command-content')) {
-            commandChild = child;
-            commandChild.style.display = 'block';
-          }
-        }
-        expandCommand(command);
-        test.style.backgroundColor = '#36ACB6';
-        commandMarker = command.querySelector('.marker')
-        commandMarker.classList.add('active');
-        break;
-      }
-      test.style.backgroundColor = 'black';
-    } */
-    test.style.backgroundColor = 'purple';
-
   };
 
-  let mobileDevice = /Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || false;
-  /* document.addEventListener('click', commandHandler); */
   [
     document.querySelector('#cmd-join'),
     document.querySelector('#cmd-leave'),
@@ -172,5 +117,4 @@ window.addEventListener('load', function () {
       commandHandler(el);
     });
   })
-
 });
