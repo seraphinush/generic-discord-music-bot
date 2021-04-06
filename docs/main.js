@@ -77,7 +77,7 @@ window.addEventListener('load', function () {
     if (!commandOpen) return;
     test.style.backgroundColor = '#36ACB6';
 
-    for (let i = 0; i < 3; i++) {
+    /* for (let i = 0; i < 3; i++) {
       test.style.backgroundColor = 'pink';
       if (e.path[i].classList.contains('command')) {
         if (command) {
@@ -105,9 +105,38 @@ window.addEventListener('load', function () {
         commandMarker = command.querySelector('.marker')
         commandMarker.classList.add('active');
         break;
+      } */
+
+
+    if (command) {
+      test.style.backgroundColor = 'red';
+      collapseCommand(command);
+      test.style.backgroundColor = 'green';
+      commandMarker.classList.remove('active');
+      await sleep(200);
+      commandChild.style.display = 'none';
+      if (command == e.path[i]) {
+        command = commandChild = commandMarker = null;
+        return;
       }
-      test.style.backgroundColor = 'purple';
     }
+    command = e.path[i];
+    for (const child of command.children) {
+      if (child.classList.contains('command-content')) {
+        commandChild = child;
+        commandChild.style.display = 'block';
+      }
+    }
+    test.style.backgroundColor = 'blue';
+    expandCommand(command);
+    test.style.backgroundColor = 'yellow';
+    commandMarker = command.querySelector('.marker')
+    commandMarker.classList.add('active');
+
+
+
+    //test.style.backgroundColor = 'purple';
+    //}
     test.style.backgroundColor = 'orange';
 
   };
