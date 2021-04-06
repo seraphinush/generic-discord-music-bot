@@ -99,13 +99,6 @@ window.addEventListener('load', function () {
   };
 
   let mobileDevice = /Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || false;
-
-  document.addEventListener('click', (e) => {
-    if (!mobileDevice) commandHandler(e);
-  });
-
-  document.addEventListener('touchend', (e) => {
-    if (mobileDevice) commandHandler(e);
-  });
+  document.addEventListener('click', commandHandler);
 
 });
