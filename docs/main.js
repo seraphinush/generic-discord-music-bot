@@ -74,8 +74,37 @@ window.addEventListener('load', function () {
   };
 
   const commandHandler = async (e) => {
+
+    console.log(e)
     if (!commandOpen) return;
-    test.style.backgroundColor = 'red';
+
+    if (command) {
+      collapseCommand(command);
+      test.style.backgroundColor = 'red';
+      commandMarker.classList.remove('active');
+      await sleep(200);
+      commandChild.style.display = 'none';
+      if (command == e) {
+        command = commandChild = commandMarker = null;
+        test.style.backgroundColor = 'green';
+        return;
+      }
+    }
+    command = e;
+    test.style.backgroundColor = 'blue';
+    for (const child of command.children) {
+      if (child.classList.contains('command-content')) {
+        commandChild = child;
+        commandChild.style.display = 'block';
+      }
+    }
+    expandCommand(command);
+    test.style.backgroundColor = '#36ACB6';
+    commandMarker = command.querySelector('.marker')
+    commandMarker.classList.add('active');
+
+
+
 
     /* let some = ['red', 'green','blue']
 
@@ -85,7 +114,7 @@ window.addEventListener('load', function () {
     } */
     //test.style.backgroundColor = '#36ACB6';
 
-    for (let i = 0; i < 3; i++) {
+    /* for (let i = 0; i < 3; i++) {
       test.style.backgroundColor = 'pink';
       if (e.path[i].classList.contains('command')) {
         test.style.backgroundColor = 'green';
@@ -116,8 +145,8 @@ window.addEventListener('load', function () {
         break;
       }
       test.style.backgroundColor = 'black';
-    }
-    test.style.backgroundColor = 'orange';
+    } */
+    test.style.backgroundColor = 'purple';
 
   };
 
@@ -139,7 +168,9 @@ window.addEventListener('load', function () {
     document.querySelector('#cmd-save'),
     document.querySelector('#cmd-load')
   ].forEach(el => {
-    el.addEventListener('click', commandHandler);
+    el.addEventListener('click', () => {
+      commandHandler(el);
+    });
   })
 
 });
