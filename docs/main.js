@@ -75,7 +75,6 @@ window.addEventListener('load', function () {
 
   const commandHandler = async (e) => {
     if (!commandOpen) return;
-    test.style.backgroundColor = 'green';
 
     for (let i = 0; i < 3; i++) {
       if (e.path[i].classList.contains('command')) {
