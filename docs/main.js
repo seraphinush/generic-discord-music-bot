@@ -55,9 +55,6 @@ window.addEventListener('load', function () {
   let commandHeightMax = null;
 
   const collapseCommand = (el) => {
-    console.log('scrollHeight: ' + el.scrollHeight);
-    console.log('commandHeightMin: ' + commandHeightMin);
-    console.log('commandHeightMax: ' + commandHeightMax);
     el.style.height = commandHeightMin + 'px';
   };
 
@@ -65,14 +62,11 @@ window.addEventListener('load', function () {
     let txt = el.querySelector('h4');
     commandHeightMin = txt.scrollHeight;
     commandHeightMax = el.scrollHeight - 40;
-    console.log('scrollHeight: ' + el.scrollHeight);
-    console.log('commandHeightMin: ' + commandHeightMin);
-    console.log('commandHeightMax: ' + commandHeightMax);
     if (!el.style.height) {
-      el.style.height = commandHeightMin + 'px';
-      requestAnimationFrame(() => {
+      //el.style.height = commandHeightMin + 'px';
+      //requestAnimationFrame(() => {
         el.style.height = commandHeightMax + 'px';
-      });
+      //});
     } else {
       el.style.height = commandHeightMax + 'px';
     }
