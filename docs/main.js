@@ -58,10 +58,7 @@ window.addEventListener('load', function () {
     console.log('scrollHeight: ' + el.scrollHeight);
     console.log('commandHeightMin: ' + commandHeightMin);
     console.log('commandHeightMax: ' + commandHeightMax);
-    el.style.height = commandHeightMax + 'px';
-    requestAnimationFrame(() => {
-      el.style.height = commandHeightMin + 'px';
-    });
+    el.style.height = commandHeightMin + 'px';
   };
 
   const expandCommand = (el) => {
@@ -71,10 +68,14 @@ window.addEventListener('load', function () {
     console.log('scrollHeight: ' + el.scrollHeight);
     console.log('commandHeightMin: ' + commandHeightMin);
     console.log('commandHeightMax: ' + commandHeightMax);
-    el.style.height = commandHeightMin + 'px';
-    requestAnimationFrame(() => {
+    if (!el.style.height) {
+      el.style.height = commandHeightMin + 'px';
+      requestAnimationFrame(() => {
+        el.style.height = commandHeightMax + 'px';
+      });
+    } else {
       el.style.height = commandHeightMax + 'px';
-    });
+    }
   };
 
   const commandHandler = async (e) => {
