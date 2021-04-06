@@ -76,7 +76,6 @@ div {
 .link {
   margin-right: 25px;
   padding: 10px;
-  cursor: pointer;
 }
 
 .link.active {
@@ -91,7 +90,6 @@ div {
   align-items: center;
   width: 30px;
   height: 30px;
-  cursor: pointer;
   z-index: 3;
 }
 
@@ -159,6 +157,7 @@ div {
 
 .link-mobile {
   margin: 5px;
+  width: fit-content;
   font-size: 30px;
 }
 
@@ -225,7 +224,6 @@ div {
 .commands-title {
   margin: auto;
   padding: 20px 0;
-  cursor: pointer;
 }
 
 .commands-list {
@@ -244,7 +242,6 @@ div {
   transition: all 0.2s ease-in;
   -webkit-transition: all 0.02 ease-in;
   overflow: hidden;
-  cursor: pointer;
 }
 
 .command.active {
@@ -261,7 +258,6 @@ div {
   transition: transform 0.2s ease-in;
   transition: -webkit-transform 0.2s ease-in;
   -webkit-transition: -webkit-transform 0.02 ease-in;
-  cursor: pointer;
 }
 
 .marker.active {
@@ -271,11 +267,13 @@ div {
 
 .command-content {
   display: none;
-  cursor: pointer;
 }
 
 .command-desc, .command-aliases {
   margin-top: 10px;
+}
+
+.cursor-pointer {
   cursor: pointer;
 }
 
