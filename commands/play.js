@@ -13,8 +13,7 @@ module.exports = {
   userPermissions: [
     'VIEW_CHANNEL',
     'SEND_MESSAGES',
-    'CONNECT',
-    'SPEAK'
+    'CONNECT'
   ],
   cliTextPermissions: [
     'VIEW_CHANNEL',

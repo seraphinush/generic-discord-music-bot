@@ -109,6 +109,7 @@ window.addEventListener('load', function () {
     document.querySelector('#cmd-remove'),
     document.querySelector('#cmd-clear'),
     document.querySelector('#cmd-repeat'),
+    document.querySelector('#cmd-shuffle'),
     document.querySelector('#cmd-volume'),
     document.querySelector('#cmd-save'),
     document.querySelector('#cmd-load')

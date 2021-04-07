@@ -23,7 +23,7 @@ ATLAS_URI = mongodb+srv://admin:<PASSWORD>@<CLUSTER_NAME>.eikyh.mongodb.net/<DB_
 Note : Make sure to whitelist your IP of bot instance in MongoDB
 Install dependencies
 ```
-npm install @discordjs/opus ffmpeg-static yt-search ytdl-core
+npm install
 ```
 Run application
 ```
@@ -43,6 +43,7 @@ node index.js
 - remove, rm <Number> : remove music in queue at index if queue exists
 - clear : clear music in queue
 - repeat <none | one | all> : disable repeat music | repeat current music | repeat all music in order of queue
+- shuffle : shuffle music in queue if queue exists
 - volume <Number> : adjust volume of voice activity between 0 and 100. does not adjust the user-designated volume of the client itself
 - save : save current song list to an online database
 - load : load song list from an online database to queue. automatically plays if there is no voice activity
