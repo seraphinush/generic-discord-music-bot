@@ -24,7 +24,6 @@ module.exports = {
     // main
     // Knuth shuffle implementation
     let array = server.songs.slice(1);
-    console.log('arr :' + JSON.stringify(array))
     let n = array.length; 
     let t = null;
     let i = null;
