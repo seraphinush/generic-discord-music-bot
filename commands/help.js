@@ -1,7 +1,7 @@
 module.exports = {
   name: 'help',
   cooldown: 5,
-  requireVoice: true,
+  requireVoice: false,
   userPermissions: [
     'VIEW_CHANNEL',
     'SEND_MESSAGES'
