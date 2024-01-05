@@ -76,6 +76,6 @@ USE_VAD
 - yt-search
 
 ## License
-Copyright 2021 - present Seraphinus Hong
+Copyright 2021 Seraphinus Hong
 
 Released under the [MIT License](LICENSE)
